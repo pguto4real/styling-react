@@ -23,15 +23,18 @@ export default function AuthInputs() {
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
   return (
-    <div id="auth-inputs">
-      <div className="controls">
+    <div
+      id="auth-inputs"
+      className="mx-auto w-full max-w-sm rounded bg-gradient-to-b from-stone-700 to-stone-800 p-8 shadow-md"
+    >
+      <div className="mb-6 flex flex-col gap-2">
         <Input
           label={"Email"}
           type="email"
           onChange={(event) => handleInputChange("email", event.target.value)}
           invalid={emailNotValid}
         />
-        
+
         <Input
           label={"Password"}
           type="email"
@@ -39,24 +42,17 @@ export default function AuthInputs() {
           // className={emailNotValid ? "invalid" : undefined}
           onChange={(event) => handleInputChange("email", event.target.value)}
         />
-        
-        {/* <p>
-          <label>Password</label>
-
-          <input
-            type="password"
-            className={passwordNotValid ? "invalid" : undefined}
-            onChange={(event) =>
-              handleInputChange("password", event.target.value)
-            }
-          />
-        </p> */}
       </div>
-      <div className="actions">
-        <button type="button" className="text-button">
+      <div className="flex justify-end gap-4">
+        <Button classStyle="text-amber-400 hover:text-amber-500">
           Create a new account
-        </button>
-        <Button onClick={handleLogin}>Sign In</Button>
+        </Button>
+        <Button
+          onClick={handleLogin}
+          classStyle="rounded bg-amber-400 px-4 py-2 font-semibold uppercase text-stone-900 hover:bg-amber-500"
+        >
+          Sign In
+        </Button>
       </div>
     </div>
   );
